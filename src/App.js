@@ -1,30 +1,19 @@
 import React from "react";
-import { Route, NavLink,Switch } from "react-router-dom";
-import HomeView from "./views/HomePage";
-import NotFound from "./views/NotFound";
+import { Route } from "react-router-dom";
 import "./App.css";
+import HomePage from "./views/HomePage";
+import MoviesPage from "./views/HomePage";
+import MovieDetailsPage from "./views/MovieDetailsPage";
+import Cast from "./views/Cast";
+import Reviews from "./views/Reviews";
 
 const App = () => (
   <>
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/authors">Authors</NavLink>
-      </li>
-      <li>
-        <NavLink to="/books">Movie</NavLink>
-      </li>
-    </ul>
-    <Switch>
-      <Route exact path="/" component={HomeView} />
-      {/* <Route exact path="/movies" component={MoviesPage} />
-      <Route exact path="/movies/:movieId" component={MovieDetailsPage} />
-      <Route exact path="/movies/:movieId/cast" component={Cast} />
-      <Route exact path="/movies/:movieId/reviews" component={Reviews} /> */}
-      <Route component={NotFound} />
-    </Switch>
+    <Route path={"/"} component={HomePage}></Route>
+    <Route path={"/movies"} component={MoviesPage}></Route>
+    <Route path={"/movies/:movieId"} component={MovieDetailsPage}></Route>
+    <Route path={"/movies/:movieId/cast"} component={Cast}></Route>
+    <Route path={"/movies/:movieId/reviews"} component={Reviews}></Route>
   </>
 );
 
